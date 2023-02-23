@@ -129,6 +129,96 @@ class S {
       args: [],
     );
   }
+
+  /// `TARGET MVD`
+  String get targetTitle {
+    return Intl.message(
+      'TARGET MVD',
+      name: 'targetTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EMAIL`
+  String get emailLabel {
+    return Intl.message(
+      'EMAIL',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter email address`
+  String get emailHintText {
+    return Intl.message(
+      'Enter email address',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PASSWORD`
+  String get passwordLabel {
+    return Intl.message(
+      'PASSWORD',
+      name: 'passwordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter password',
+      name: 'passwordHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SIGN IN`
+  String get signInTitle {
+    return Intl.message(
+      'SIGN IN',
+      name: 'signInTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SIGN UP`
+  String get signUpTitle {
+    return Intl.message(
+      'SIGN UP',
+      name: 'signUpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot your password?`
+  String get forgotYourPassword {
+    return Intl.message(
+      'Forgot your password?',
+      name: 'forgotYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CONNECT WITH FACEBOOK`
+  String get connectWithFacebook {
+    return Intl.message(
+      'CONNECT WITH FACEBOOK',
+      name: 'connectWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
