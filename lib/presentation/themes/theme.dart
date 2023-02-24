@@ -154,7 +154,8 @@ abstract class LocalTheme {
         fontFamily: primaryFontBlack,
         fontSize: titleMFontSize,
         height: titleMHeight,
-        letterSpacing: -0.2,
+        letterSpacing: 3,
+        color: colors.primary,
       );
 
   get titleS => TextStyle(
@@ -165,10 +166,12 @@ abstract class LocalTheme {
       );
 
   get titleXS => TextStyle(
-        fontFamily: primaryFontHeavy,
+        fontFamily: primaryFont,
         fontSize: titleXSFontSize,
+        fontWeight: FontWeight.bold,
         height: titleXSHeight,
-        letterSpacing: -0.14,
+        letterSpacing: 2,
+        color: colors.primary,
       );
 
   get subtitleM => TextStyle(
@@ -205,7 +208,7 @@ abstract class LocalTheme {
         fontSize: bodySFontSize,
         height: bodySHeight,
         fontWeight: FontWeight.normal,
-        letterSpacing: -0.14,
+        color: colors.primary,
       );
 
   get inputText => TextStyle(

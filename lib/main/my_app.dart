@@ -4,7 +4,7 @@ import 'package:flutter_base_rootstrap/presentation/resources/locale/generated/l
 import 'package:flutter_base_rootstrap/presentation/resources/locale/localize.dart';
 import 'package:flutter_base_rootstrap/presentation/themes/variants/light.dart';
 import 'package:flutter_base_rootstrap/presentation/ui/components/cookies.dart';
-import 'package:flutter_base_rootstrap/presentation/ui/pages/home/home_page.dart';
+import 'package:flutter_base_rootstrap/presentation/ui/pages/sign_in/sign_in_page.dart';
 import 'package:flutter_base_rootstrap/utils/globals.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const Cookies(
-              child: HomePage(),
+              child: SignInPage(),
             ),
       },
     );
