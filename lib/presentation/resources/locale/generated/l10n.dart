@@ -219,6 +219,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Please provide email...`
+  String get emailEmptyMessage {
+    return Intl.message(
+      'Please provide email...',
+      name: 'emailEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter valid email format...`
+  String get emailFormatMessage {
+    return Intl.message(
+      'Please enter valid email format...',
+      name: 'emailFormatMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide password...`
+  String get passwordEmptyMessage {
+    return Intl.message(
+      'Please provide password...',
+      name: 'passwordEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password must be 6 characters long`
+  String get passwordFormatMessage {
+    return Intl.message(
+      'The password must be 6 characters long',
+      name: 'passwordFormatMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

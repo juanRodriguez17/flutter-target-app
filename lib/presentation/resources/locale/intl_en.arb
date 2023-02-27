@@ -15,5 +15,9 @@
   "signInTitle": "SIGN IN",
   "signUpTitle": "SIGN UP",
   "forgotYourPassword": "Forgot your password?",
-  "connectWithFacebook": "CONNECT WITH FACEBOOK"
+  "connectWithFacebook": "CONNECT WITH FACEBOOK",
+  "emailEmptyMessage": "Please provide email...",
+  "emailFormatMessage": "Please enter valid email format...",
+  "passwordEmptyMessage": "Please provide password...",
+  "passwordFormatMessage": "The password must be 6 characters long"
 }
