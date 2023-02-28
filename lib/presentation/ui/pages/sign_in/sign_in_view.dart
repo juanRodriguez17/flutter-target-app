@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_base_rootstrap/presentation/resources/locale/generated/l10n.dart';
 import 'package:flutter_base_rootstrap/presentation/resources/resources.dart';
@@ -39,11 +41,14 @@ class SignInView extends StatelessWidget {
                           TextInputForm(
                             labelText: S.of(context).emailLabel,
                             hintText: S.of(context).emailHintText,
+                            validator: EmailFieldValidator(),
                           ),
                           const SizedBox(height: 24),
                           TextInputForm(
                             labelText: S.of(context).passwordLabel,
                             hintText: S.of(context).passwordHintText,
+                            isSensitive: true,
+                            validator: PasswordFieldValidator(),
                           ),
                           Container(
                             padding: const EdgeInsets.only(top: 26),
@@ -52,7 +57,7 @@ class SignInView extends StatelessWidget {
                               buttonColor:
                                   Theme.of(context).colorScheme.primary,
                               width: Dimen.authenticationButtonWidth,
-                              onPressed: () {},
+                              onPressed: () => login(),
                             ),
                           ),
                           Container(
@@ -106,5 +111,17 @@ class SignInView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  login() {
+    if (!_formKey.currentState!.validate()) {
+      // Invalid
+      log("Invalid");
+      return;
+    }
+    _formKey.currentState!.save();
+
+    // TODO: Make login call
+
   }
 }
