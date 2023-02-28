@@ -47,7 +47,7 @@ class SignInView extends StatelessWidget {
                           TextInputForm(
                             labelText: S.of(context).passwordLabel,
                             hintText: S.of(context).passwordHintText,
-                            isPassword: true,
+                            isSensitive: true,
                             validator: PasswordFieldValidator(),
                           ),
                           Container(

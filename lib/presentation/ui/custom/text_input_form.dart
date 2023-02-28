@@ -7,14 +7,14 @@ import 'package:flutter_base_rootstrap/presentation/resources/resources.dart';
 class TextInputForm extends StatelessWidget {
   final String labelText;
   final String hintText;
-  final bool isPassword;
+  final bool isSensitive;
   final FieldValidator? validator;
 
   const TextInputForm({
     Key? key,
     required this.labelText,
     required this.hintText,
-    this.isPassword = false,
+    this.isSensitive = false,
     this.validator,
   }) : super(key: key);
 
@@ -30,7 +30,7 @@ class TextInputForm extends StatelessWidget {
           padding: EdgeInsets.only(top: spacing.xxs),
           child: TextFormField(
             textAlign: TextAlign.center,
-            obscureText: isPassword,
+            obscureText: isSensitive,
             decoration: InputDecoration(
               hintText: hintText,
               border: OutlineInputBorder(
