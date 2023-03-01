@@ -9,6 +9,7 @@ class TextInputForm extends StatelessWidget {
   final String hintText;
   final bool isSensitive;
   final FieldValidator? validator;
+  final Function(String)? onFieldSaved;
 
   const TextInputForm({
     Key? key,
@@ -16,6 +17,7 @@ class TextInputForm extends StatelessWidget {
     required this.hintText,
     this.isSensitive = false,
     this.validator,
+    this.onFieldSaved,
   }) : super(key: key);
 
   @override
@@ -40,6 +42,9 @@ class TextInputForm extends StatelessWidget {
                 ),
               ),
             ),
+            onSaved: (value) {
+              if (value != null) onFieldSaved?.call(value);
+            },
             validator: (value) => handleFieldValidation(value, context),
           ),
         ),
