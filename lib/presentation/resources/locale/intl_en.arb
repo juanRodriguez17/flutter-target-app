@@ -19,5 +19,6 @@
   "emailEmptyMessage": "Please provide email...",
   "emailFormatMessage": "Please enter valid email format...",
   "passwordEmptyMessage": "Please provide password...",
-  "passwordFormatMessage": "The password must be 6 characters long"
+  "passwordFormatMessage": "The password must be 6 characters long",
+  "signInError": "this email and password don’t match"
 }

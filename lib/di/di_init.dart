@@ -5,6 +5,7 @@ import 'package:flutter_base_rootstrap/data/data_sources/remote/abstract/auth_da
 import 'package:flutter_base_rootstrap/data/data_sources/remote/abstract/product_data_source.dart';
 import 'package:flutter_base_rootstrap/data/data_sources/remote/concrete/product_data_source_impl.dart';
 import 'package:flutter_base_rootstrap/data/network/config/network_config.dart';
+import 'package:flutter_base_rootstrap/data/network/interceptors/header_interceptor.dart';
 import 'package:flutter_base_rootstrap/data/repositories/auth_repository_impl.dart';
 import 'package:flutter_base_rootstrap/data/repositories/product_repository_impl.dart';
 import 'package:flutter_base_rootstrap/devices/permissions/abstract/permission_manager.dart';
@@ -59,7 +60,8 @@ Future<void> initialize() async {
   });
 
   //Network
-  getIt.registerLazySingleton<Dio>(() => NetworkConfig.provideDio());
+  getIt.registerFactory(() => HeaderInterceptor());
+  getIt.registerLazySingleton<Dio>(() => NetworkConfig.provideDio(getIt()));
 
   //Data Sources
   getIt.registerLazySingleton<ProductDataSource>(

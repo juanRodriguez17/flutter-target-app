@@ -8,6 +8,10 @@ class SignInCubit extends Cubit<SignInState> {
 
   SignInCubit(this._signInUseCase) : super(const SignInInitial());
 
+  void resetInputs() {
+    emit(const SignInInitial());
+  }
+
   Future<void> signIn(String email, String password) async {
     emit(const SignInLoading());
     final result = await _signInUseCase.signIn(email, password);

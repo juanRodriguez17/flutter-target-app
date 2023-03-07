@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_base_rootstrap/presentation/bloc/sign_in/sign_in_cubit.dart';
 import 'package:flutter_base_rootstrap/presentation/bloc/sign_in/sign_in_state.dart';
@@ -7,6 +5,7 @@ import 'package:flutter_base_rootstrap/presentation/resources/locale/generated/l
 import 'package:flutter_base_rootstrap/presentation/resources/resources.dart';
 import 'package:flutter_base_rootstrap/presentation/ui/custom/custom_button.dart';
 import 'package:flutter_base_rootstrap/presentation/ui/custom/text_input_form.dart';
+import 'package:flutter_base_rootstrap/string_constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInView extends StatefulWidget {
@@ -19,8 +18,10 @@ class SignInView extends StatefulWidget {
 class _SignInState extends State<SignInView> {
   final _formKey = GlobalKey<FormState>();
 
-  String _email = "";
-  String _password = "";
+  String _email = StringConstants.empty;
+  String _password = StringConstants.empty;
+  String? _errorRetrieved;
+  String? _errorInputFormat;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,7 @@ class _SignInState extends State<SignInView> {
         child: BlocConsumer<SignInCubit, SignInState>(
           listenWhen: (prevState, currentState) => prevState != currentState,
           listener: (context, state) {
-            if (state is SignInError) showSnackBar(state.errorMessage);
-            if (state is SignInSuccessful) {
-              // TODO: Navigate to home screen
-            }
+            listenStates(context, state);
           },
           builder: (context, state) {
             if (state is SignInLoading) {
@@ -70,6 +68,9 @@ class _SignInState extends State<SignInView> {
                                 onFieldSaved: (value) {
                                   _email = value.trim();
                                 },
+                                onTaped: () =>
+                                    context.read<SignInCubit>().resetInputs(),
+                                errorText: _errorInputFormat,
                               ),
                               const SizedBox(height: 24),
                               TextInputForm(
@@ -80,6 +81,9 @@ class _SignInState extends State<SignInView> {
                                 onFieldSaved: (value) {
                                   _password = value.trim();
                                 },
+                                onTaped: () =>
+                                    context.read<SignInCubit>().resetInputs(),
+                                errorText: _errorRetrieved,
                               ),
                               Container(
                                 padding: const EdgeInsets.only(top: 26),
@@ -151,11 +155,9 @@ class _SignInState extends State<SignInView> {
     );
   }
 
-  showSnackBar(String errorMessage) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(errorMessage),
-      backgroundColor: Colors.red,
-    ));
+  setErrorMessages(bool shouldShowErrors) {
+    _errorRetrieved = shouldShowErrors ? S.of(context).signInError : null;
+    _errorInputFormat = shouldShowErrors ? StringConstants.empty : null;
   }
 
   login() {
@@ -164,5 +166,19 @@ class _SignInState extends State<SignInView> {
       context.read<SignInCubit>().signIn(_email, _password);
     }
     return;
+  }
+
+  listenStates(BuildContext context, SignInState state) {
+    if (state is SignInInitial) setErrorMessages(false);
+    if (state is SignInError) setErrorMessages(true);
+    if (state is SignInSuccessful) {
+      // TODO: Navigate to home screen
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Login successful"),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
   }
 }

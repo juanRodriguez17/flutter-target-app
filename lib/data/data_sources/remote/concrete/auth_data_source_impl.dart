@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_base_rootstrap/core/failure/failure.dart';
 import 'package:flutter_base_rootstrap/core/failure/failure_mapper.dart';
@@ -18,15 +20,12 @@ class AuthDataSourceImpl implements AuthDataSource {
   ) async {
     final request = SignInRequest(email, password).toMap();
     try {
-      final response =
-          await _dio.post(NetworkConstants.signInPath, data: request);
-      if (response.statusCode == 200) {
-        return TSuccess(true);
-      }
-      return TError(response.data);
+      await _dio.post(NetworkConstants.signInPath, data: request);
+      return TSuccess(true);
     } on DioError catch (error) {
       return TError(error.toFailure());
     } catch (e) {
+      log(e.toString());
       return TError(UnexpectedFailure(e.toString()));
     }
   }

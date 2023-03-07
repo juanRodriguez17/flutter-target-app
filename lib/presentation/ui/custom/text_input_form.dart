@@ -10,6 +10,8 @@ class TextInputForm extends StatelessWidget {
   final bool isSensitive;
   final FieldValidator? validator;
   final Function(String)? onFieldSaved;
+  final VoidCallback? onTaped;
+  final String? errorText;
 
   const TextInputForm({
     Key? key,
@@ -18,6 +20,8 @@ class TextInputForm extends StatelessWidget {
     this.isSensitive = false,
     this.validator,
     this.onFieldSaved,
+    this.onTaped,
+    this.errorText,
   }) : super(key: key);
 
   @override
@@ -31,6 +35,7 @@ class TextInputForm extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: spacing.xxs),
           child: TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             textAlign: TextAlign.center,
             obscureText: isSensitive,
             decoration: InputDecoration(
@@ -41,7 +46,9 @@ class TextInputForm extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
+              errorText: errorText,
             ),
+            onTap: () => onTaped?.call(),
             onSaved: (value) {
               if (value != null) onFieldSaved?.call(value);
             },
@@ -62,9 +69,9 @@ class TextInputForm extends StatelessWidget {
 }
 
 abstract class FieldValidator {
-  String errorMessage;
+  String? errorMessage;
 
-  FieldValidator({this.errorMessage = ""});
+  FieldValidator({this.errorMessage});
 
   bool isFieldValid(String? value, BuildContext context);
 }
