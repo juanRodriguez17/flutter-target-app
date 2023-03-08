@@ -51,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Please try again later, we are\nworking to fix the issue."),
         "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+        "signInError": MessageLookupByLibrary.simpleMessage(
+            "this email and password don’t match"),
         "signInTitle": MessageLookupByLibrary.simpleMessage("SIGN IN"),
         "signUpTitle": MessageLookupByLibrary.simpleMessage("SIGN UP"),
         "sorryWeDidntFindAnyProduct": MessageLookupByLibrary.simpleMessage(

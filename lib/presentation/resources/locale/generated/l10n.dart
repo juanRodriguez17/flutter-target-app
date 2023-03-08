@@ -259,6 +259,16 @@ class S {
       args: [],
     );
   }
+
+  /// `this email and password don’t match`
+  String get signInError {
+    return Intl.message(
+      'this email and password don’t match',
+      name: 'signInError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
