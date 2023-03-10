@@ -6,6 +6,10 @@ import 'package:flutter_base_rootstrap/data/data_sources/remote/abstract/product
 import 'package:flutter_base_rootstrap/data/data_sources/remote/concrete/product_data_source_impl.dart';
 import 'package:flutter_base_rootstrap/data/network/config/network_config.dart';
 import 'package:flutter_base_rootstrap/data/network/interceptors/header_interceptor.dart';
+import 'package:flutter_base_rootstrap/data/preferences/preferences.dart'
+    as prefs;
+import 'package:flutter_base_rootstrap/data/preferences/preferences_impl.dart'
+    as prefs_impl;
 import 'package:flutter_base_rootstrap/data/repositories/auth_repository_impl.dart';
 import 'package:flutter_base_rootstrap/data/repositories/product_repository_impl.dart';
 import 'package:flutter_base_rootstrap/devices/permissions/abstract/permission_manager.dart';
@@ -46,6 +50,9 @@ Future<void> initialize() async {
   getIt.registerSingleton<SharedPreferences>(pref);
   getIt.registerSingleton<Preferences>(PreferencesImpl(getIt()));
   getIt.registerSingleton<AppPlatform>(AppPlatformImpl());
+  getIt.registerSingleton<prefs.Preferences>(
+    prefs_impl.PreferencesImpl(getIt()),
+  );
   getIt.registerLazySingleton<PlatformInfo>(() => PlatformInfoImpl(getIt()));
   getIt.registerLazySingleton<PermissionManager>(() {
     final platforms = getIt<AppPlatform>();
@@ -68,7 +75,7 @@ Future<void> initialize() async {
     () => ProductDataSourceImpl(getIt()),
   );
   getIt.registerLazySingleton<AuthDataSource>(
-    () => AuthDataSourceImpl(getIt()),
+    () => AuthDataSourceImpl(getIt(), getIt()),
   );
   //Repositories
   getIt.registerLazySingleton<ProductRepository>(
