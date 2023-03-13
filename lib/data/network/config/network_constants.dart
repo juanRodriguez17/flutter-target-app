@@ -9,4 +9,7 @@ class NetworkConstants {
   static const typesOfContentAccepted = "*/*";
   static const contentTypeHeader = "Content-Type";
   static const applicationJson = "application/json";
+  static const authHeader = "access-token";
+  static const clientHeader = "client";
+  static const uidHeader = "uid";
 }
