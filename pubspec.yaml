@@ -109,9 +109,9 @@ flutter:
   uses-material-design: true
 
   # In order for you to include assets to the app we recommend you to use the paths below, uncomment them and set the files inside them based on what they are (Images or Icons)
-  # assets:
-  #   - assets/
-  #   - assets/images/
+  assets:
+   - assets/
+   - assets/images/
   #   - assets/icons/
 
   fonts:

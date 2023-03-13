@@ -129,6 +129,146 @@ class S {
       args: [],
     );
   }
+
+  /// `TARGET MVD`
+  String get targetTitle {
+    return Intl.message(
+      'TARGET MVD',
+      name: 'targetTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EMAIL`
+  String get emailLabel {
+    return Intl.message(
+      'EMAIL',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter email address`
+  String get emailHintText {
+    return Intl.message(
+      'Enter email address',
+      name: 'emailHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PASSWORD`
+  String get passwordLabel {
+    return Intl.message(
+      'PASSWORD',
+      name: 'passwordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter password`
+  String get passwordHintText {
+    return Intl.message(
+      'Enter password',
+      name: 'passwordHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SIGN IN`
+  String get signInTitle {
+    return Intl.message(
+      'SIGN IN',
+      name: 'signInTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SIGN UP`
+  String get signUpTitle {
+    return Intl.message(
+      'SIGN UP',
+      name: 'signUpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot your password?`
+  String get forgotYourPassword {
+    return Intl.message(
+      'Forgot your password?',
+      name: 'forgotYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CONNECT WITH FACEBOOK`
+  String get connectWithFacebook {
+    return Intl.message(
+      'CONNECT WITH FACEBOOK',
+      name: 'connectWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide email...`
+  String get emailEmptyMessage {
+    return Intl.message(
+      'Please provide email...',
+      name: 'emailEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter valid email format...`
+  String get emailFormatMessage {
+    return Intl.message(
+      'Please enter valid email format...',
+      name: 'emailFormatMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide password...`
+  String get passwordEmptyMessage {
+    return Intl.message(
+      'Please provide password...',
+      name: 'passwordEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password must be 6 characters long`
+  String get passwordFormatMessage {
+    return Intl.message(
+      'The password must be 6 characters long',
+      name: 'passwordFormatMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `this email and password don’t match`
+  String get signInError {
+    return Intl.message(
+      'this email and password don’t match',
+      name: 'signInError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

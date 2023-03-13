@@ -10,7 +10,7 @@ extension FailureMapper on DioError {
       case DioErrorType.receiveTimeout:
         return SocketTimeOutFailure(message);
       case DioErrorType.response:
-        return HttpFailure(message, response?.statusCode);
+        return HttpFailure(response?.data["error"], response?.statusCode);
       case DioErrorType.cancel:
       case DioErrorType.other:
         return UnexpectedFailure(message);
