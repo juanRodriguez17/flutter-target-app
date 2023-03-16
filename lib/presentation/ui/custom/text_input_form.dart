@@ -10,6 +10,7 @@ class TextInputForm extends StatelessWidget {
   final bool isSensitive;
   final FieldValidator? validator;
   final Function(String)? onFieldSaved;
+  final Function(String)? onChanged;
   final VoidCallback? onTaped;
   final String? errorText;
 
@@ -20,6 +21,7 @@ class TextInputForm extends StatelessWidget {
     this.isSensitive = false,
     this.validator,
     this.onFieldSaved,
+    this.onChanged,
     this.onTaped,
     this.errorText,
   }) : super(key: key);
@@ -52,6 +54,7 @@ class TextInputForm extends StatelessWidget {
             onSaved: (value) {
               if (value != null) onFieldSaved?.call(value);
             },
+            onChanged: (value) => onChanged?.call(value),
             validator: (value) => handleFieldValidation(value, context),
           ),
         ),
@@ -106,6 +109,41 @@ class PasswordFieldValidator extends FieldValidator {
     }
     if (value.length < IntConstants.minPasswordLength) {
       errorMessage = S.of(context).passwordFormatMessage;
+      return false;
+    }
+
+    return true;
+  }
+}
+
+class ConfirmPasswordFieldValidator extends FieldValidator {
+  final String? oldPassword;
+
+  ConfirmPasswordFieldValidator({this.oldPassword});
+
+  @override
+  bool isFieldValid(String? value, BuildContext context) {
+    if (value == null || value.isEmpty) {
+      errorMessage = S.of(context).passwordEmptyMessage;
+      return false;
+    }
+
+    if (value != oldPassword) {
+      errorMessage = S.of(context).confirmPasswordErrorMessage;
+      return false;
+    }
+
+    return true;
+  }
+}
+
+class NameFieldValidator extends FieldValidator {
+  NameFieldValidator();
+
+  @override
+  bool isFieldValid(String? value, BuildContext context) {
+    if (value == null || value.isEmpty) {
+      errorMessage = S.of(context).nameEmptyMessage;
       return false;
     }
 
