@@ -36,6 +36,7 @@ class _DropDownInputFormState extends State<DropDownInputForm> {
         Padding(
           padding: EdgeInsets.only(top: spacing.xxs),
           child: DropdownButtonFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             isExpanded: true,
             hint: Align(
               alignment: Alignment.center,

@@ -20,112 +20,133 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: _formKey,
+    return SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height + 50,
+        ),
         child: Stack(
-          alignment: Alignment.topCenter,
           children: [
-            Image.asset(
-              'assets/images/circle_image.png',
-              fit: BoxFit.fitWidth,
-              width: MediaQuery.of(context).size.width,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 125),
-              child: Column(
-                children: [
-                  Text(
-                    S.of(context).targetTitle,
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 68),
-                      padding: const EdgeInsets.symmetric(horizontal: 66),
+            Scaffold(
+              body: Form(
+                key: _formKey,
+                child: Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Image.asset(
+                      'assets/images/circle_image.png',
+                      fit: BoxFit.fitWidth,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 125),
                       child: Column(
                         children: [
-                          TextInputForm(
-                            labelText: S.of(context).nameLabel,
-                            hintText: S.of(context).nameHintText,
-                            validator: NameFieldValidator(),
-                            onFieldSaved: (value) {},
-                            onTaped: () {},
+                          Text(
+                            S.of(context).targetTitle,
+                            style: Theme.of(context).textTheme.headline3,
                           ),
-                          const SizedBox(height: 17),
-                          TextInputForm(
-                            labelText: S.of(context).emailLabel,
-                            hintText: S.of(context).emailHintText,
-                            validator: EmailFieldValidator(),
-                            onFieldSaved: (value) {},
-                            onTaped: () {},
-                          ),
-                          const SizedBox(height: 17),
-                          TextInputForm(
-                            labelText: S.of(context).passwordLabel,
-                            hintText: S.of(context).passwordHintText,
-                            isSensitive: true,
-                            validator: PasswordFieldValidator(),
-                            onChanged: (value) {
-                              _password = value.trim();
-                            },
-                            onFieldSaved: (value) {},
-                            onTaped: () {},
-                          ),
-                          const SizedBox(height: 17),
-                          TextInputForm(
-                            labelText: S.of(context).confirmPasswordLabel,
-                            hintText: S.of(context).passwordHintText,
-                            isSensitive: true,
-                            validator: ConfirmPasswordFieldValidator(
-                              oldPassword: _password,
-                            ),
-                            onFieldSaved: (value) {},
-                            onTaped: () {},
-                          ),
-                          const SizedBox(height: 17),
-                          DropDownInputForm(
-                            labelText: S.of(context).genderLabel,
-                            hintText: S.of(context).genderHintText,
-                            optionsList: const ["Female", "Male", "Other"],
-                            validator: GenderFieldValidator(),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(top: 34),
-                            child: CustomButton(
-                              text: S.of(context).signUpTitle,
-                              buttonColor:
-                                  Theme.of(context).colorScheme.primary,
-                              width: Dimen.authenticationButtonWidth,
-                              onPressed: () => signUp(context),
-                            ),
-                          ),
-                          const SizedBox(height: 19),
-                          const Divider(
-                            thickness: 0.5,
-                            color: Colors.black,
-                            indent: 44,
-                            endIndent: 44,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: spacing.m),
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pushReplacementNamed(
-                                  Routes.signInScreen,
-                                );
-                              },
-                              child: Text(
-                                S.of(context).signInTitle,
-                                style: Theme.of(context).textTheme.headline5,
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(top: 68),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 66),
+                              child: Column(
+                                children: [
+                                  TextInputForm(
+                                    labelText: S.of(context).nameLabel,
+                                    hintText: S.of(context).nameHintText,
+                                    validator: NameFieldValidator(),
+                                    onFieldSaved: (value) {},
+                                    onTaped: () {},
+                                  ),
+                                  const SizedBox(height: 17),
+                                  TextInputForm(
+                                    labelText: S.of(context).emailLabel,
+                                    hintText: S.of(context).emailHintText,
+                                    validator: EmailFieldValidator(),
+                                    onFieldSaved: (value) {},
+                                    onTaped: () {},
+                                  ),
+                                  const SizedBox(height: 17),
+                                  TextInputForm(
+                                    labelText: S.of(context).passwordLabel,
+                                    hintText: S.of(context).passwordHintText,
+                                    isSensitive: true,
+                                    validator: PasswordFieldValidator(),
+                                    onChanged: (value) {
+                                      _password = value.trim();
+                                    },
+                                    onFieldSaved: (value) {},
+                                    onTaped: () {},
+                                  ),
+                                  const SizedBox(height: 17),
+                                  TextInputForm(
+                                    labelText:
+                                        S.of(context).confirmPasswordLabel,
+                                    hintText: S.of(context).passwordHintText,
+                                    isSensitive: true,
+                                    validator: ConfirmPasswordFieldValidator(
+                                      oldPassword: _password,
+                                    ),
+                                    onFieldSaved: (value) {},
+                                    onTaped: () {},
+                                  ),
+                                  const SizedBox(height: 17),
+                                  DropDownInputForm(
+                                    labelText: S.of(context).genderLabel,
+                                    hintText: S.of(context).genderHintText,
+                                    optionsList: const [
+                                      "Female",
+                                      "Male",
+                                      "Other",
+                                    ],
+                                    validator: GenderFieldValidator(),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.only(top: 34),
+                                    child: CustomButton(
+                                      text: S.of(context).signUpTitle,
+                                      buttonColor:
+                                          Theme.of(context).colorScheme.primary,
+                                      width: Dimen.authenticationButtonWidth,
+                                      onPressed: () => signUp(context),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 19),
+                                  const Divider(
+                                    thickness: 0.5,
+                                    color: Colors.black,
+                                    indent: 44,
+                                    endIndent: 44,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: spacing.m),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .pushReplacementNamed(
+                                          Routes.signInScreen,
+                                        );
+                                      },
+                                      child: Text(
+                                        S.of(context).signInTitle,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline5,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
