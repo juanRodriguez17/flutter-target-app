@@ -6,6 +6,7 @@ import 'package:flutter_base_rootstrap/presentation/resources/resources.dart';
 import 'package:flutter_base_rootstrap/presentation/ui/custom/custom_button.dart';
 import 'package:flutter_base_rootstrap/presentation/ui/custom/text_input_form.dart';
 import 'package:flutter_base_rootstrap/string_constants.dart';
+import 'package:flutter_base_rootstrap/utils/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInView extends StatefulWidget {
@@ -92,7 +93,7 @@ class _SignInState extends State<SignInView> {
                                   buttonColor:
                                       Theme.of(context).colorScheme.primary,
                                   width: Dimen.authenticationButtonWidth,
-                                  onPressed: () => login(),
+                                  onPressed: login,
                                 ),
                               ),
                               Container(
@@ -131,7 +132,9 @@ class _SignInState extends State<SignInView> {
                                 margin: EdgeInsets.only(top: spacing.m),
                                 child: TextButton(
                                   onPressed: () {
-                                    // TODO: Navigate to Sign Up screen
+                                    Navigator.of(context).pushReplacementNamed(
+                                      Routes.signUpScreen,
+                                    );
                                   },
                                   child: Text(
                                     S.of(context).signUpTitle,
