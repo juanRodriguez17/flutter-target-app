@@ -26,9 +26,11 @@ import 'package:flutter_base_rootstrap/domain/repositories/auth_repository.dart'
 import 'package:flutter_base_rootstrap/domain/repositories/product_repository.dart';
 import 'package:flutter_base_rootstrap/domain/use_cases/get_products_use_case.dart';
 import 'package:flutter_base_rootstrap/domain/use_cases/sign_in_use_case.dart';
+import 'package:flutter_base_rootstrap/domain/use_cases/sign_up_use_case.dart';
 import 'package:flutter_base_rootstrap/presentation/bloc/get_products/get_products_cubit.dart';
 import 'package:flutter_base_rootstrap/presentation/bloc/get_products_repo/get_products_repo_cubit.dart';
 import 'package:flutter_base_rootstrap/presentation/bloc/sign_in/sign_in_cubit.dart';
+import 'package:flutter_base_rootstrap/presentation/bloc/sign_up/sign_up_cubit.dart';
 import 'package:flutter_base_rootstrap/utils/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -87,8 +89,10 @@ Future<void> initialize() async {
   //Use cases
   getIt.registerFactory(() => GetProductsUseCase(getIt()));
   getIt.registerFactory(() => SignInUseCase(getIt()));
+  getIt.registerFactory(() => SignUpUseCase(getIt()));
   //Cubits
   getIt.registerFactory(() => GetProductsRepoCubit(getIt()));
   getIt.registerFactory(() => GetProductsCubit(getIt()));
   getIt.registerFactory(() => SignInCubit(getIt()));
+  getIt.registerFactory(() => SignUpCubit(getIt()));
 }

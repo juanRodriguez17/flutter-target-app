@@ -269,6 +269,86 @@ class S {
       args: [],
     );
   }
+
+  /// `NAME`
+  String get nameLabel {
+    return Intl.message(
+      'NAME',
+      name: 'nameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter name`
+  String get nameHintText {
+    return Intl.message(
+      'Enter name',
+      name: 'nameHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CONFIRM PASSWORD`
+  String get confirmPasswordLabel {
+    return Intl.message(
+      'CONFIRM PASSWORD',
+      name: 'confirmPasswordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GENDER`
+  String get genderLabel {
+    return Intl.message(
+      'GENDER',
+      name: 'genderLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your gender`
+  String get genderHintText {
+    return Intl.message(
+      'Select your gender',
+      name: 'genderHintText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you forgot to select your gender!`
+  String get genderEmptyMessage {
+    return Intl.message(
+      'you forgot to select your gender!',
+      name: 'genderEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you forgot to put your name!`
+  String get nameEmptyMessage {
+    return Intl.message(
+      'you forgot to put your name!',
+      name: 'nameEmptyMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `passwords don’t match`
+  String get confirmPasswordErrorMessage {
+    return Intl.message(
+      'passwords don’t match',
+      name: 'confirmPasswordErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

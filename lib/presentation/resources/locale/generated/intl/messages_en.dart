@@ -23,6 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("Flutter Target"),
+        "confirmPasswordErrorMessage":
+            MessageLookupByLibrary.simpleMessage("passwords don’t match"),
+        "confirmPasswordLabel":
+            MessageLookupByLibrary.simpleMessage("CONFIRM PASSWORD"),
         "connectWithFacebook":
             MessageLookupByLibrary.simpleMessage("CONNECT WITH FACEBOOK"),
         "cookiesAcceptCTA": MessageLookupByLibrary.simpleMessage("Accept"),
@@ -39,6 +43,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailLabel": MessageLookupByLibrary.simpleMessage("EMAIL"),
         "forgotYourPassword":
             MessageLookupByLibrary.simpleMessage("Forgot your password?"),
+        "genderEmptyMessage": MessageLookupByLibrary.simpleMessage(
+            "you forgot to select your gender!"),
+        "genderHintText":
+            MessageLookupByLibrary.simpleMessage("Select your gender"),
+        "genderLabel": MessageLookupByLibrary.simpleMessage("GENDER"),
+        "nameEmptyMessage": MessageLookupByLibrary.simpleMessage(
+            "you forgot to put your name!"),
+        "nameHintText": MessageLookupByLibrary.simpleMessage("Enter name"),
+        "nameLabel": MessageLookupByLibrary.simpleMessage("NAME"),
         "noConnection": MessageLookupByLibrary.simpleMessage("No connection"),
         "passwordEmptyMessage":
             MessageLookupByLibrary.simpleMessage("Please provide password..."),
