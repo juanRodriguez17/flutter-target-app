@@ -120,9 +120,9 @@ class SignUpView extends StatelessWidget {
                                         labelText: S.of(context).genderLabel,
                                         hintText: S.of(context).genderHintText,
                                         optionsList: const [
-                                          "Female",
-                                          "Male",
-                                          "Other",
+                                          StringConstants.femaleGender,
+                                          StringConstants.maleGender,
+                                          StringConstants.otherGender,
                                         ],
                                         validator: GenderFieldValidator(),
                                         onFieldSaved: (value) {
