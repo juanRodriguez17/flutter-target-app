@@ -4,6 +4,7 @@ class NetworkConstants {
   static const baseUrl = "https://target-api-induction-v2.herokuapp.com";
   static const productsPath = "/products";
   static const signInPath = "/api/v1/users/sign_in";
+  static const signUpPath = "/api/v1/users";
 
   static const acceptHeader = "Accept";
   static const typesOfContentAccepted = "*/*";

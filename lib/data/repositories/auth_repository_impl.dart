@@ -9,8 +9,20 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._authDataSource);
 
   @override
-  Future<ResultType<bool, Failure>> signIn(String email, String password) async {
+  Future<ResultType<bool, Failure>> signIn(
+    String email,
+    String password,
+  ) async {
     return await _authDataSource.signIn(email, password);
   }
 
+  @override
+  Future<ResultType<bool, Failure>> signUp(
+    String name,
+    String email,
+    String password,
+    String gender,
+  ) async {
+    return await _authDataSource.signUp(name, email, password, gender);
+  }
 }
