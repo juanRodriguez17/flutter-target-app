@@ -133,11 +133,6 @@ class ConfirmPasswordFieldValidator extends FieldValidator {
       return false;
     }
 
-    /*if (value != oldPassword) {
-      errorMessage = S.of(context).confirmPasswordErrorMessage;
-      return false;
-    }*/
-
     return true;
   }
 }
