@@ -9,6 +9,7 @@ class DropDownInputForm extends StatefulWidget {
   final String hintText;
   final List optionsList;
   final FieldValidator? validator;
+  final Function(String)? onFieldSaved;
 
   const DropDownInputForm({
     Key? key,
@@ -16,6 +17,7 @@ class DropDownInputForm extends StatefulWidget {
     required this.hintText,
     required this.optionsList,
     required this.validator,
+    required this.onFieldSaved,
   }) : super(key: key);
 
   @override
@@ -57,6 +59,11 @@ class _DropDownInputFormState extends State<DropDownInputForm> {
                 _selectedValue = value as String;
               });
             },
+            onSaved: (_) {
+              if (_selectedValue != null) {
+                widget.onFieldSaved?.call(_selectedValue!);
+              }
+            },
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.zero,
@@ -65,7 +72,8 @@ class _DropDownInputFormState extends State<DropDownInputForm> {
                 ),
               ),
             ),
-            validator: (value) => handleFieldValidation(value as String?, context),
+            validator: (value) =>
+                handleFieldValidation(value as String?, context),
           ),
         ),
       ],

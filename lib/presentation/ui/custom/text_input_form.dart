@@ -117,9 +117,9 @@ class PasswordFieldValidator extends FieldValidator {
 }
 
 class ConfirmPasswordFieldValidator extends FieldValidator {
-  final String? oldPassword;
+  static String? oldPassword;
 
-  ConfirmPasswordFieldValidator({this.oldPassword});
+  ConfirmPasswordFieldValidator();
 
   @override
   bool isFieldValid(String? value, BuildContext context) {
@@ -128,7 +128,7 @@ class ConfirmPasswordFieldValidator extends FieldValidator {
       return false;
     }
 
-    if (value != oldPassword) {
+    if (oldPassword != null && value != oldPassword) {
       errorMessage = S.of(context).confirmPasswordErrorMessage;
       return false;
     }
